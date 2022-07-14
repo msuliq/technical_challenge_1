@@ -1,0 +1,23 @@
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
+<h1>Flats and Users App</h1>
+<h2>Users</h2>
+<% @users.each do |user| %>
+    <div class="entry">
+        <h3><%= user.name %></h3>
+        <div class="separation_line">
+            <span class="details"><%= user.email %></span>
+        </div>
+    </div>
+<% end %>
+<h2>Flats</h2>
+<% @flats.each do |flat| %>
+    <div class="entry">
+        <h3><%= flat.name %></h3>
+        <div class="separation_line">
+            <span class="details"><%= flat.latitude %></span>
+            <span class="details"><%= flat.longitude %></span>
+        </div>
+    </div>
+<% end %>
