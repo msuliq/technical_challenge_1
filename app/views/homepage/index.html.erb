@@ -1,32 +1,9 @@
 <% if notice %>
     <p id="notice"><%= notice %></p>
 <% end %>
-<div class="jumbotron text-center"><h1 class="display-4">Flats and Users App</h1></div>
-<h2>Flats</h2>
-<% @flats.each do |flat| %>
-    <div class="entry">
-        <h3><%= flat.name %></h3>
-        <div class="separation_line">
-            <span class="details"><%= flat.latitude %></span>
-            <br>
-            <span class="details"><%= flat.longitude %></span>
-            <br>
-            <span class="details"><%= flat.tenants.count %></span>
-        </div>
-        
-    </div>
-<% end %>
-<h2>Users</h2>
-<% @users.each do |user| %>
-    <div class="entry">
-        <h3><%= user.name %></h3>
-        <div class="separation_line">
-            <span class="details"><%= user.email %></span>
-            <%= link_to 'Add to Flat', data: 
-            { turbo_method: :post } %>
-            <%= link_to 'Remove from Flat', data: 
-            { turbo_method: :destroy, turbo_confirm: "Are you sure?" } %>
-        </div>
-    </div>
-<% end %>
 
+<%= render 'homepage/flats_list' %>
+<div class="add_flat_form">
+    <%= render 'flats/form', flat: Flat.new %>
+</div>
+<%= render 'homepage/users_list' %>

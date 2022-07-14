@@ -1,46 +1,76 @@
-.homepage {
-    h1 {
-        margin: 0;
-        padding-bottom: 0.5em;
-        font: 150% sans-serif;
-        color: #226;
-        border-bottom: 3px dotted #77d;
-    }
+body {
+    padding-top: 90px;
+    padding-left: 20px;
+}
 
-    h2 {
-        margin: 0;
-        padding-bottom: 0.5em;
-        font: 135% sans-serif;
-        color: #226;
-        border-bottom: 2px dotted #77d;
-    }
 
-    /* Entries of users and flats */
-    .entry {
-        overflow: auto;
-        margin-top: 1em;
-        border-bottom: 1px dotted #77d;
-        min-height: 100px;
-        
-        h3 {
-            font-size: 120%;
-            font-family: sans-serif;
-            margin-left: 100px;
-            margin-top: 0;
-            margin-bottom: 2px;
-            color: #227;
-        }
+/* styles for the text */
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+}
+h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+}
+p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+}
+
+/* styles for the header */
+
+#logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+    text-decoration: none;
     
-        p, div.separation_line {
-            margin-left: 100px;
-            margin-top: 0.5em;
-            margin-bottom: 0.8em;
-        }
-        
-        .details {
-            color: #44a;
-            font-weight: bold;
-            margin-right: 3em;
-        }
+    &:hover {
+    color: white;
+    text-decoration: underline;
     }
+}
+
+/* navbar buttons and dropdown button */
+#menu_button {
+    padding: 0px;
+    margin: 0px 10px;
+    text-decoration: none;
+    color: lightgray;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.nav-link {
+    display: inline;
+}
+
+table {
+    margin-top: 25px;
+}
+td {
+    padding-right: 25px;
+    text-align: left;
+}
+
+.add_flat_form {
+    padding-top: 25px;
+    text-align: left;
 }

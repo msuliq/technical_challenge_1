@@ -1,0 +1,25 @@
+<div class="jumbotron text-center">
+    <h1 class="display-4">List of available flats</h1>
+</div>
+<% @flats.each do |flat| %>
+    <table>
+        <tr>
+            <td>Flat name</td>
+            <td><%= flat.name %></td>
+        </tr>
+        <tr>
+            <td>Latitude</td>
+            <td><%= flat.latitude %></td>
+        </tr>
+        <tr>
+            <td>Longitude</td>
+            <td><%= flat.longitude %></td>
+        </tr>
+         <tr>
+            <td>Number of tenants</td>
+            <td><%= flat.tenants.count %></td>
+        </tr>
+    </table>
+<% end %>
+<%= link_to 'Add New Flat', '#', class: 'btn btn-primary' %>
+<%= link_to 'Remove Flat', '#', class: 'btn btn-danger' %>

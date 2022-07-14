@@ -1,6 +1,8 @@
 class HomepageController < ApplicationController
+  
   def index
-    @users = User.order(:name)
-    @flats = Flat.order(:name)
+    @users = User.all.order(:name)
+    @flats = Flat.all.order(:name)
   end
+
 end

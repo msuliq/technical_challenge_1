@@ -1,0 +1,35 @@
+
+<div class="jumbotron text-center">
+    <h1 class="display-4">List of users</h1>
+</div>
+
+<% @users.each do |user| %>
+    <table>
+        <tr>
+            <td>User name</td>
+            <td><%= user.name %></td>
+        </tr>
+        <tr>
+            <td>User email</td>
+            <td><%= user.email %></td>
+        </tr>
+        <tr>
+            <td>Resident of flat</td>
+            <td>
+            <% if user.tenant.nil? %>
+                <%= 'None' %>
+            <% else %>
+                <%= user.tenant.flat.name %></td>
+            <% end %>
+        </tr>
+        <tr>
+            <td><%= link_to 'Add to Flat', '#', class: 'btn btn-primary' %></td>
+            <td>
+            <% unless user.tenant.nil? %>
+            <%= link_to 'Remove from Flat', tenant_path(user), 
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+            <% end %>
+            </td>
+        </tr>
+    </table>
+<% end %>
