@@ -14,7 +14,7 @@ class User < ApplicationRecord
     private
         # verify that user is not a tenant currently
         def ensure_not_current_tenant
-            if tenants.empty?
+            if tenant.nil?
                 return true
             else
                 errors.add(:base, 'User is currently a tenant')

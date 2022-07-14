@@ -1,33 +1,13 @@
 class TenantsController < ApplicationController
-  include CurrentFlat
-  before_action :set_flat, only: [:create]
-  before_action :set_tenant, only: %i[ show edit update destroy ]
+  before_action :set_tenant, only: :destroy
 
-  # GET /tenants or /tenants.json
-  def index
-    @tenants = Tenant.all
-  end
-
-  # GET /tenants/1 or /tenants/1.json
-  def show
-  end
-
-  # GET /tenants/new
-  def new
-    @tenant = Tenant.new
-  end
-
-  # GET /tenants/1/edit
-  def edit
-  end
-
-  # POST /tenants or /tenants.json
-  def create
-    @tenant = Tenant.new(tenant_params)
-
+  def create(user_id, flat_id)
+    user = User.find(params[:user_id])
+    @tenant = @flat.add_tenant(user.id)
+    
     respond_to do |format|
       if @tenant.save
-        format.html { redirect_to tenant_url(@tenant), notice: "Tenant was successfully created." }
+        format.html { redirect_to @tenant.flat, notice: "Tenant was successfully added." }
         format.json { render :show, status: :created, location: @tenant }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,25 +16,10 @@ class TenantsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tenants/1 or /tenants/1.json
-  def update
-    respond_to do |format|
-      if @tenant.update(tenant_params)
-        format.html { redirect_to tenant_url(@tenant), notice: "Tenant was successfully updated." }
-        format.json { render :show, status: :ok, location: @tenant }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @tenant.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /tenants/1 or /tenants/1.json
   def destroy
     @tenant.destroy
-
     respond_to do |format|
-      format.html { redirect_to tenants_url, notice: "Tenant was successfully destroyed." }
+      format.html { redirect_to tenants_url, notice: "Tenant vacated the flat." }
       format.json { head :no_content }
     end
   end
