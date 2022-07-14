@@ -19,7 +19,10 @@
             <td>Number of tenants</td>
             <td><%= flat.tenants.count %></td>
         </tr>
+        <tr>
+        <td><%= link_to 'Select This Flat', '#', class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Delete This Flat', flat_path(flat), 
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %></td>
+        </tr>
     </table>
 <% end %>
-<%= link_to 'Add New Flat', '#', class: 'btn btn-primary' %>
-<%= link_to 'Remove Flat', '#', class: 'btn btn-danger' %>

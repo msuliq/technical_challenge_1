@@ -27,7 +27,7 @@ class FlatsController < ApplicationController
 
     respond_to do |format|
       if @flat.save
-        format.html { redirect_to flat_url(@flat), notice: "Flat was successfully created." }
+        format.html { redirect_to request.referrer || flat_url(@flat), notice: "Flat was successfully created." }
         format.json { render :show, status: :created, location: @flat }
       else
         format.html { render :new, status: :unprocessable_entity }
