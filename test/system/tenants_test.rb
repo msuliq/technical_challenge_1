@@ -1,43 +1,45 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class TenantsTest < ApplicationSystemTestCase
   setup do
     @tenant = tenants(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit tenants_url
-    assert_selector "h1", text: "Tenants"
+    assert_selector 'h1', text: 'Tenants'
   end
 
-  test "should create tenant" do
+  test 'should create tenant' do
     visit tenants_url
-    click_on "New tenant"
+    click_on 'New tenant'
 
-    fill_in "Flat", with: @tenant.flat_id
-    fill_in "User", with: @tenant.user_id
-    click_on "Create Tenant"
+    fill_in 'Flat', with: @tenant.flat_id
+    fill_in 'User', with: @tenant.user_id
+    click_on 'Create Tenant'
 
-    assert_text "Tenant was successfully created"
-    click_on "Back"
+    assert_text 'Tenant was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Tenant" do
+  test 'should update Tenant' do
     visit tenant_url(@tenant)
-    click_on "Edit this tenant", match: :first
+    click_on 'Edit this tenant', match: :first
 
-    fill_in "Flat", with: @tenant.flat_id
-    fill_in "User", with: @tenant.user_id
-    click_on "Update Tenant"
+    fill_in 'Flat', with: @tenant.flat_id
+    fill_in 'User', with: @tenant.user_id
+    click_on 'Update Tenant'
 
-    assert_text "Tenant was successfully updated"
-    click_on "Back"
+    assert_text 'Tenant was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Tenant" do
+  test 'should destroy Tenant' do
     visit tenant_url(@tenant)
-    click_on "Destroy this tenant", match: :first
+    click_on 'Destroy this tenant', match: :first
 
-    assert_text "Tenant was successfully destroyed"
+    assert_text 'Tenant was successfully destroyed'
   end
 end

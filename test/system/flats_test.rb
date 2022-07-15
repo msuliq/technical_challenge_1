@@ -1,45 +1,47 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class FlatsTest < ApplicationSystemTestCase
   setup do
     @flat = flats(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit flats_url
-    assert_selector "h1", text: "Flats"
+    assert_selector 'h1', text: 'Flats'
   end
 
-  test "should create flat" do
+  test 'should create flat' do
     visit flats_url
-    click_on "New flat"
+    click_on 'New flat'
 
-    fill_in "Latitude", with: @flat.latitude
-    fill_in "Longitude", with: @flat.longitude
-    fill_in "Name", with: @flat.name
-    click_on "Create Flat"
+    fill_in 'Latitude', with: @flat.latitude
+    fill_in 'Longitude', with: @flat.longitude
+    fill_in 'Name', with: @flat.name
+    click_on 'Create Flat'
 
-    assert_text "Flat was successfully created"
-    click_on "Back"
+    assert_text 'Flat was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Flat" do
+  test 'should update Flat' do
     visit flat_url(@flat)
-    click_on "Edit this flat", match: :first
+    click_on 'Edit this flat', match: :first
 
-    fill_in "Latitude", with: @flat.latitude
-    fill_in "Longitude", with: @flat.longitude
-    fill_in "Name", with: @flat.name
-    click_on "Update Flat"
+    fill_in 'Latitude', with: @flat.latitude
+    fill_in 'Longitude', with: @flat.longitude
+    fill_in 'Name', with: @flat.name
+    click_on 'Update Flat'
 
-    assert_text "Flat was successfully updated"
-    click_on "Back"
+    assert_text 'Flat was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Flat" do
+  test 'should destroy Flat' do
     visit flat_url(@flat)
-    click_on "Destroy this flat", match: :first
+    click_on 'Destroy this flat', match: :first
 
-    assert_text "Flat was successfully destroyed"
+    assert_text 'Flat was successfully destroyed'
   end
 end

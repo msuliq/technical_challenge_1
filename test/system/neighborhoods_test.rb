@@ -1,49 +1,51 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class NeighborhoodsTest < ApplicationSystemTestCase
   setup do
     @neighborhood = neighborhoods(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit neighborhoods_url
-    assert_selector "h1", text: "Neighborhoods"
+    assert_selector 'h1', text: 'Neighborhoods'
   end
 
-  test "should create neighborhood" do
+  test 'should create neighborhood' do
     visit neighborhoods_url
-    click_on "New neighborhood"
+    click_on 'New neighborhood'
 
-    fill_in "Maxlat", with: @neighborhood.maxlat
-    fill_in "Maxlong", with: @neighborhood.maxlong
-    fill_in "Minlat", with: @neighborhood.minlat
-    fill_in "Minlong", with: @neighborhood.minlong
-    fill_in "Name", with: @neighborhood.name
-    click_on "Create Neighborhood"
+    fill_in 'Maxlat', with: @neighborhood.maxlat
+    fill_in 'Maxlong', with: @neighborhood.maxlong
+    fill_in 'Minlat', with: @neighborhood.minlat
+    fill_in 'Minlong', with: @neighborhood.minlong
+    fill_in 'Name', with: @neighborhood.name
+    click_on 'Create Neighborhood'
 
-    assert_text "Neighborhood was successfully created"
-    click_on "Back"
+    assert_text 'Neighborhood was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Neighborhood" do
+  test 'should update Neighborhood' do
     visit neighborhood_url(@neighborhood)
-    click_on "Edit this neighborhood", match: :first
+    click_on 'Edit this neighborhood', match: :first
 
-    fill_in "Maxlat", with: @neighborhood.maxlat
-    fill_in "Maxlong", with: @neighborhood.maxlong
-    fill_in "Minlat", with: @neighborhood.minlat
-    fill_in "Minlong", with: @neighborhood.minlong
-    fill_in "Name", with: @neighborhood.name
-    click_on "Update Neighborhood"
+    fill_in 'Maxlat', with: @neighborhood.maxlat
+    fill_in 'Maxlong', with: @neighborhood.maxlong
+    fill_in 'Minlat', with: @neighborhood.minlat
+    fill_in 'Minlong', with: @neighborhood.minlong
+    fill_in 'Name', with: @neighborhood.name
+    click_on 'Update Neighborhood'
 
-    assert_text "Neighborhood was successfully updated"
-    click_on "Back"
+    assert_text 'Neighborhood was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Neighborhood" do
+  test 'should destroy Neighborhood' do
     visit neighborhood_url(@neighborhood)
-    click_on "Destroy this neighborhood", match: :first
+    click_on 'Destroy this neighborhood', match: :first
 
-    assert_text "Neighborhood was successfully destroyed"
+    assert_text 'Neighborhood was successfully destroyed'
   end
 end

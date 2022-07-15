@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class NeighborhoodsController < ApplicationController
-  before_action :set_neighborhood, only: %i[ show edit update destroy ]
+  before_action :set_neighborhood, only: %i[show edit update destroy]
 
   # GET /neighborhoods or /neighborhoods.json
   def index
@@ -7,8 +9,7 @@ class NeighborhoodsController < ApplicationController
   end
 
   # GET /neighborhoods/1 or /neighborhoods/1.json
-  def show
-  end
+  def show; end
 
   # GET /neighborhoods/new
   def new
@@ -16,8 +17,7 @@ class NeighborhoodsController < ApplicationController
   end
 
   # GET /neighborhoods/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /neighborhoods or /neighborhoods.json
   def create
@@ -25,7 +25,7 @@ class NeighborhoodsController < ApplicationController
 
     respond_to do |format|
       if @neighborhood.save
-        format.html { redirect_to neighborhood_url(@neighborhood), notice: "Neighborhood was successfully created." }
+        format.html { redirect_to neighborhood_url(@neighborhood), notice: 'Neighborhood was successfully created.' }
         format.json { render :show, status: :created, location: @neighborhood }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class NeighborhoodsController < ApplicationController
   def update
     respond_to do |format|
       if @neighborhood.update(neighborhood_params)
-        format.html { redirect_to neighborhood_url(@neighborhood), notice: "Neighborhood was successfully updated." }
+        format.html { redirect_to neighborhood_url(@neighborhood), notice: 'Neighborhood was successfully updated.' }
         format.json { render :show, status: :ok, location: @neighborhood }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class NeighborhoodsController < ApplicationController
     @neighborhood.destroy
 
     respond_to do |format|
-      format.html { redirect_to neighborhoods_url, notice: "Neighborhood was successfully destroyed." }
+      format.html { redirect_to neighborhoods_url, notice: 'Neighborhood was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_neighborhood
-      @neighborhood = Neighborhood.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def neighborhood_params
-      params.require(:neighborhood).permit(:name, :maxlat, :minlat, :maxlong, :minlong)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_neighborhood
+    @neighborhood = Neighborhood.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def neighborhood_params
+    params.require(:neighborhood).permit(:name, :maxlat, :minlat, :maxlong, :minlong)
+  end
 end
