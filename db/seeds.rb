@@ -19,8 +19,34 @@ User.create!(name:'Fernando Martinez', email: 'martinez@example.com')
 User.create!(name:'Oliver Biscuit', email: 'biscuit@example.com')
 User.create!(name:'Avery Carrington', email: 'carrington@example.com')
 
-# Create 6 flats 
 # Bali is located within lat: -7.65 to -9.25 and long: 114.27 to 115.87
+# Create 4 neighborhoods
+
+Neighborhood.create!(   name: 'Vice Point',
+                        maxlat: -7.65,
+                        minlat: -8.00,
+                        maxlong: 115.00,
+                        minlong: 114.27)
+
+Neighborhood.create!(   name: 'Fort Baxter',
+                        maxlat: -7.65,
+                        minlat: -8.00,
+                        maxlong: 115.87,
+                        minlong: 115.00)
+
+Neighborhood.create!(   name: 'Ocean Beach',
+                        maxlat: -8.00,
+                        minlat: -9.25,
+                        maxlong: 115.00,
+                        minlong: -114.27)
+
+Neighborhood.create!(   name: 'Starfish Port',
+                        maxlat: -8.00,
+                        minlat: -9.25,
+                        maxlong: 115.87,
+                        minlong: 115.00)
+
+# Create 6 flats 
 
 Flat.create!(name:'Marina Sands Suite',
             latitude: -7.998877, 

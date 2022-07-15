@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :locations
+  resources :neighborhoods
   get 'homepage/index'
   root to: 'homepage#index', as: 'homepage'
 

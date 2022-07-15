@@ -10,11 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_14_103801) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_15_182658) do
   create_table "flats", force: :cascade do |t|
     t.string "name"
     t.decimal "latitude"
     t.decimal "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer "flat_id", null: false
+    t.integer "neighborhood_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flat_id"], name: "index_locations_on_flat_id"
+    t.index ["neighborhood_id"], name: "index_locations_on_neighborhood_id"
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string "name"
+    t.float "maxlat", null: false
+    t.float "minlat", null: false
+    t.float "maxlong", null: false
+    t.float "minlong", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_103801) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "locations", "flats"
+  add_foreign_key "locations", "neighborhoods"
   add_foreign_key "tenants", "flats"
   add_foreign_key "tenants", "users"
 end

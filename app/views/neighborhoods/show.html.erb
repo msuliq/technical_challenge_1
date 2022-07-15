@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @neighborhood %>
+
+<div>
+  <%= link_to "Edit this neighborhood", edit_neighborhood_path(@neighborhood) %> |
+  <%= link_to "Back to neighborhoods", neighborhoods_path %>
+
+  <%= button_to "Destroy this neighborhood", @neighborhood, method: :delete %>
+</div>

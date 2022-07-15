@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  maxlat: 1.5
+  minlat: 1.5
+  maxlong: 1.5
+  minlong: 1.5
+
+two:
+  name: MyString
+  maxlat: 1.5
+  minlat: 1.5
+  maxlong: 1.5
+  minlong: 1.5

@@ -1,0 +1,42 @@
+<%= form_with(model: neighborhood) do |form| %>
+  <% if neighborhood.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(neighborhood.errors.count, "error") %> prohibited this neighborhood from being saved:</h2>
+
+      <ul>
+        <% neighborhood.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :maxlat, style: "display: block" %>
+    <%= form.text_field :maxlat %>
+  </div>
+
+  <div>
+    <%= form.label :minlat, style: "display: block" %>
+    <%= form.text_field :minlat %>
+  </div>
+
+  <div>
+    <%= form.label :maxlong, style: "display: block" %>
+    <%= form.text_field :maxlong %>
+  </div>
+
+  <div>
+    <%= form.label :minlong, style: "display: block" %>
+    <%= form.text_field :minlong %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
