@@ -23,11 +23,12 @@
             <% end %>
         </tr>
         <tr>
-            <td><%= link_to 'Add to Flat', '#', class: 'btn btn-primary' %></td>
             <td>
             <% unless user.tenant.nil? %>
             <%= link_to 'Remove from Flat', tenant_path(user), 
             data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+            <% else %>
+            <%= link_to 'Add to Flat', '#', class: 'btn btn-primary' %>
             <% end %>
             </td>
         </tr>
