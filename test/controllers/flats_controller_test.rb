@@ -43,7 +43,7 @@ class FlatsControllerTest < ActionDispatch::IntegrationTest
   test 'should destroy flat' do
     assert_difference('Flat.count', -1) do
       delete flat_url(@flat)
-    end
+    end 
 
     assert_redirected_to flats_url
   end

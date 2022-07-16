@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :locations
   resources :neighborhoods
   get 'homepage/index'
   root to: 'homepage#index', as: 'homepage'

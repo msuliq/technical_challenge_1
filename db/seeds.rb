@@ -21,7 +21,7 @@ User.create!(name: 'Fernando Martinez', email: 'martinez@example.com')
 User.create!(name: 'Oliver Biscuit', email: 'biscuit@example.com')
 User.create!(name: 'Avery Carrington', email: 'carrington@example.com')
 
-# Bali is located within lat: -7.65 to -9.25 and long: 114.27 to 115.87
+# Virtual location is located within lat: -7.65 to -9.25 and long: 114.27 to 115.87
 # Create 4 neighborhoods
 
 Neighborhood.create!(name: 'Vice Point',
