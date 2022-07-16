@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   has_one :tenant
+  has_one :flat, through: :tenant
   before_destroy :ensure_not_current_tenant
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }

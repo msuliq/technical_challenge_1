@@ -2,10 +2,11 @@
 
 class Flat < ApplicationRecord
   has_many :tenants, dependent: :destroy
-  belongs_to :neighborhood, optional: true
+  belongs_to :neighborhood, optional: true, foreign_key: :neighborhood_id
+  validates :name, presence: true
   validates :latitude, presence: true
   validates :longitude, presence: true
-
+  
   # This is draft AREL and SQL code for condition 'belongs_to'
   #
   #  lambda {
