@@ -3,8 +3,6 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: %i[show edit update destroy]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :invalid_flat
-
   # GET /flats or /flats.json
   def index
     @flats = Flat.all
@@ -71,8 +69,4 @@ class FlatsController < ApplicationController
     params.require(:flat).permit(:name, :latitude, :longitude)
   end
 
-  def invalid_flat
-    logger.error "Attempt to access invalid flat #{params[:id]}"
-    redirect_to flats_url, notice: 'Invalid flat'
-  end
 end
