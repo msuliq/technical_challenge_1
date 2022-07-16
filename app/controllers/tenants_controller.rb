@@ -3,10 +3,8 @@
 class TenantsController < ApplicationController
   before_action :set_tenant, only: :destroy
 
-  def create(_user_id, _flat_id)
-    user = User.find(params[:user_id])
-    @tenant = @flat.add_tenant(user.id)
-
+  def create
+    @tenant = Tenant.new(tenant_params)
     respond_to do |format|
       if @tenant.save
         format.html { redirect_to @tenant.flat, notice: 'Tenant was successfully added.' }

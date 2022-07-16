@@ -3,20 +3,18 @@
 require 'test_helper'
 
 class TenantsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @tenant = tenants(:one)
-  end
 
   test 'should create tenant' do
     assert_difference('Tenant.count') do
-      post tenants_url, params: { tenant: { flat_id: @tenant.flat_id, user_id: @tenant.user_id } }
+      @flat = flats(:three)
+      @user = users(:three)
+      post tenants_url, params: { tenant: { flat_id: @flat.id, user_id: @user.id } }
     end
-
-    assert_redirected_to tenant_url(Tenant.last)
   end
 
   test 'should destroy tenant' do
     assert_difference('Tenant.count', -1) do
+      @tenant = tenants(:one)
       delete tenant_url(@tenant)
     end
 

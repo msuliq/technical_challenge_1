@@ -3,7 +3,11 @@
 class Flat < ApplicationRecord
   has_many :tenants, dependent: :destroy
   belongs_to :neighborhood, optional: true
-  
+  validates :latitude, presence: true
+  validates :longitude, presence: true
+
+  # This is draft AREL and SQL code for condition 'belongs_to'
+  #
   #  lambda {
   #   where('SELECT "neighborhood_id".* FROM "neighborhoods" WHERE
   #     (SELECT "neighborhoods"."maxlat", "neighborhoods"."minlat", "neighborhoods"."maxlong", "neighborhoods"."minlong"
@@ -15,13 +19,4 @@ class Flat < ApplicationRecord
   # Neighborhood.where(flats(Arel.star).join(neighborhoods).where('flats.latitude > neighborhoods.minlat and flats.latitude < neighborhoods.maxlat and
   #   flats.longitude > neighborhoods.minlong and flats.longitude < neighborhoods.maxlong'))
 
-  def add_tenant(user_id)
-    current_tenant = tenants.find_by(user_id:)
-    if current_tenant
-      current_tenant.quantity += 1
-    else
-      current_tenant = tenants.build(user_id:)
-    end
-    current_tenant
-  end
 end

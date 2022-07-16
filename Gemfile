@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+gem 'active_storage_validations', '~> 0.9'
+gem 'rails-controller-testing', '~> 1.0'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'jbuilder'
